@@ -1,17 +1,24 @@
-<h1 class="title is-size-3 is-size-4-touch"><%= title %> Post</h1>
-
 <%= form_with model: @post do |form| %>
+  <% if @post.errors.any? %>
+      <% @post.errors.full_messages.each do |msg| %>
+        <p class="notification is-danger py-2 px-3 ">
+          <%= msg %>
+        </p>
+      <% end %>
+  <% end %>
+  
   <div class="field">
     <%= form.label :title, "Title", class: "label" %>
     <div class="control">
-      <%= form.text_field :title, class: "input", placeholder: "Title of the post" %>
+      <%= form.text_field :title, required: true, maxlength: 150, class: "input", placeholder: "Title of the post" %>
     </div>
+    <p class="help">Title shouldn't exceed 150 characters</p>
   </div>
 
   <div class="field">
     <%= form.label :body, "Text", class: "label" %>
     <div class="control">
-      <%= form.text_area :body, class: "textarea", placeholder: "Write your text here..." %>
+      <%= form.text_area :body, required: true, class: "textarea", placeholder: "Write your text here..." %>
     </div>
   </div>
   

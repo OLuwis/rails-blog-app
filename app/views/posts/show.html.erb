@@ -10,6 +10,7 @@
       } %>
     </div>
   </div>
+
   <div>
     <div class="is-size-6 has-text-weight-semibold mb-2">
       <p>Author: Luis Miguel</p>
@@ -18,6 +19,7 @@
     </div>
   </div>
   <div class="divider my-2 mb-4">Tags</div>
+
   <div class="tags">
     <%= link_to "Action", root_path, class: "tag is-rounded is-link" %>
     <%= link_to "Action", root_path, class: "tag is-rounded is-link" %>
@@ -30,7 +32,9 @@
     <%= link_to "Action", root_path, class: "tag is-rounded is-link" %>
   </div>
   <div class="divider my-0 mb-2">Post</div>
+  
   <h1 class="title mb-4"><%= @post.title %></h1>
   <p class="subtitle"><%= @post.body %></p>
   <div class="divider">Comments (40)</div>
+  
 </div>

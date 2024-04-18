@@ -1,1 +1,6 @@
-<%= render "form" %>
+<div class="container is-fluid">
+  <% @posts.each do |post| %>
+    <%= render "card", post: post %>
+  <% end %>
+  <%= paginate @posts, window: 2, outer_window: 1 %>
+</div>

@@ -1,0 +1,36 @@
+<div>
+  <div class="field is-grouped">
+    <div class="control">
+      <%= link_to "Edit", edit_post_path(@post), class: "button is-success is-small" %>
+    </div>
+    <div class="control">
+      <%= link_to "Delete", post_path(@post), class: "button is-danger is-small", data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+      } %>
+    </div>
+  </div>
+  <div>
+    <div class="is-size-6 has-text-weight-semibold mb-2">
+      <p>Author: Luis Miguel</p>
+      <p>Created: <%= time_ago_in_words(@post.created_at).capitalize %> ago</p>
+      <p>Edited: <%= time_ago_in_words(@post.updated_at).capitalize %> ago</p>
+    </div>
+  </div>
+  <div class="divider my-2 mb-4">Tags</div>
+  <div class="tags">
+    <%= link_to "Action", root_path, class: "tag is-rounded is-link" %>
+    <%= link_to "Action", root_path, class: "tag is-rounded is-link" %>
+    <%= link_to "Action", root_path, class: "tag is-rounded is-link" %>
+    <%= link_to "Action", root_path, class: "tag is-rounded is-link" %>
+    <%= link_to "Action", root_path, class: "tag is-rounded is-link" %>
+    <%= link_to "Action", root_path, class: "tag is-rounded is-link" %>
+    <%= link_to "Action", root_path, class: "tag is-rounded is-link" %>
+    <%= link_to "Action", root_path, class: "tag is-rounded is-link" %>
+    <%= link_to "Action", root_path, class: "tag is-rounded is-link" %>
+  </div>
+  <div class="divider my-0 mb-2">Post</div>
+  <h1 class="title mb-4"><%= @post.title %></h1>
+  <p class="subtitle"><%= @post.body %></p>
+  <div class="divider">Comments (40)</div>
+</div>

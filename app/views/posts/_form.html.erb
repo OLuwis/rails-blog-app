@@ -1,44 +1,33 @@
-<h1 class="title is-size-3 is-size-4-touch">New Post</h1>
+<h1 class="title is-size-3 is-size-4-touch"><%= title %> Post</h1>
 
-<form action="/">
-  <div class="field is-horizontal">
-    <div class="field-body">
-      <div class="field">
-        <label for="title" class="label">Title</label>
-        <div class="control">
-          <input placeholder="Post's title" type="text" name="title" id="title" class="input" />
-        </div>
-      </div>
-
-      <div class="field">
-        <label for="author" class="label">Author</label>
-        <div class="control">
-          <input value="Luis Miguel" type="text" name="author" id="author" class="input" readonly />
-        </div>
-      </div>
+<%= form_with model: @post do |form| %>
+  <div class="field">
+    <%= form.label :title, "Title", class: "label" %>
+    <div class="control">
+      <%= form.text_field :title, class: "input", placeholder: "Title of the post" %>
     </div>
   </div>
 
   <div class="field">
-    <label for="text" class="label">Text</label>
+    <%= form.label :body, "Text", class: "label" %>
     <div class="control">
-      <textarea placeholder="Write your text here..." type="text" name="text" id="text" class="textarea"></textarea>
+      <%= form.text_area :body, class: "textarea", placeholder: "Write your text here..." %>
     </div>
   </div>
   
-  <div class="field">
-    <label for="tags" class="label">Tags</label>
+  <!--<div class="field">
+    <%= form.label :tag, "Tags", class: "label" %>
     <div class="control">
-      <input type="text" name="tags" id="tags" class="input" />
+      <%= form.text_field :tag, class: "input" %>
     </div>
-  </div>
+  </div>-->
 
   <div class="field is-grouped is-grouped-centered pt-2">
     <div class="control">
-      <button type="submit" class="button is-link">Submit</button>
+      <%= form.submit "Submit", class: "button is-link" %>
     </div>
     <div class="control">
-      <button type="reset" class="button is-danger ">Cancel</button>
+      <%= link_to "Cancel", root_path, class: "button has-text-white is-danger" %>
     </div>
   </div>
-</form>
+<% end %>

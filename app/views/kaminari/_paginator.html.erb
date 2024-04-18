@@ -1,0 +1,11 @@
+<%= paginator.render do -%>
+  <nav class="pagination pagination-list px-6 mx-6 mb-3" role="navigation" aria-label="pager">
+    <% each_page do |page| -%>
+      <% if page.display_tag? -%>
+        <%= page_tag page %>
+      <% elsif !page.was_truncated? -%>
+        <%= gap_tag %>
+      <% end -%>
+    <% end -%>
+  </nav>
+<% end -%>

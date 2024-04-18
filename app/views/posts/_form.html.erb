@@ -1,0 +1,44 @@
+<h1 class="title is-size-3 is-size-4-touch">New Post</h1>
+
+<form action="/">
+  <div class="field is-horizontal">
+    <div class="field-body">
+      <div class="field">
+        <label for="title" class="label">Title</label>
+        <div class="control">
+          <input placeholder="Post's title" type="text" name="title" id="title" class="input" />
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="author" class="label">Author</label>
+        <div class="control">
+          <input value="Luis Miguel" type="text" name="author" id="author" class="input" readonly />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <label for="text" class="label">Text</label>
+    <div class="control">
+      <textarea placeholder="Write your text here..." type="text" name="text" id="text" class="textarea"></textarea>
+    </div>
+  </div>
+  
+  <div class="field">
+    <label for="tags" class="label">Tags</label>
+    <div class="control">
+      <input type="text" name="tags" id="tags" class="input" />
+    </div>
+  </div>
+
+  <div class="field is-grouped is-grouped-centered pt-2">
+    <div class="control">
+      <button type="submit" class="button is-link">Submit</button>
+    </div>
+    <div class="control">
+      <button type="reset" class="button is-danger ">Cancel</button>
+    </div>
+  </div>
+</form>

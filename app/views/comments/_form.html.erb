@@ -1,4 +1,12 @@
 <%= form_with model: [@post, @post.comments], url: post_comments_path(@post) do |form| %>
+  <% if @comment.errors.any? %>
+      <% @comment.errors.full_messages.each do |message| %>
+        <p class="notification is-danger has-text-semibold py-2 px-3 ">
+          <%= message %>
+        </p>
+      <% end %>
+  <% end %>
+
   <div class="is-flex mb-4">
     <span class="icon is-large mt-1">
       <i class="bx bxs-user-circle is-size-1"></i>

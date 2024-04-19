@@ -1,0 +1,18 @@
+<div class="dropdown is-hoverable is-right ml-2">
+  <div class="dropdown-trigger">
+    <span class="icon is-large is-clickable">
+      <i class="bx bxs-user-circle is-size-2"></i>
+    </span>
+  </div>
+  <div class="dropdown-menu">
+    <div class="dropdown-content">
+      <%= link_to "Posts", root_path, class: "dropdown-item has-text-weight-semibold" %>
+      <%= link_to "Profile", root_path, class: "dropdown-item has-text-weight-semibold" %>
+      <hr class="dropdown-divider" />
+      <%= link_to "Sign Out", destroy_user_session_path, class: "dropdown-item has-text-danger has-text-weight-semibold",
+        data: {
+          turbo_method: :delete
+        } %>
+    </div>
+  </div>
+</div>

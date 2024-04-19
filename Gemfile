@@ -2,6 +2,9 @@ source "https://rubygems.org"
 
 ruby "3.2.3"
 
+# Devise for authentication
+gem "devise"
+
 # Kaminari for pagination
 gem "kaminari"
 
@@ -51,7 +54,10 @@ group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
 
+  # RSpec for testing
   gem 'rspec-rails', '~> 6.1.0'
+
+  # FactoryBot for model testing
   gem 'factory_bot_rails', '~> 6.4'
 end
 

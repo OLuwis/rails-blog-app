@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  devise_for :users
   root "posts#index"
 
   resources :posts do
     get "/page/:page", action: :index, on: :collection
-    resources :comments, only: [:new, :create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

@@ -18,6 +18,12 @@
 
   <body class="container is-fluid">
     <%= render "shared/navbar" %>
+    <% if notice %>
+      <p class="notification is-success has-text-semibold"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="notification is-danger has-text-semibold"><%= alert %></p>
+    <% end %>
     <div class="px-0 py-2 container is-max-desktop">
       <%= yield %>
     </div>

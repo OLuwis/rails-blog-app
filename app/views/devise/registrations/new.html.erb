@@ -1,0 +1,51 @@
+<h2 class="title">Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+
+  <div class="field is-horizontal">
+    <div class="field-body">
+      <div class="field">
+        <%= f.label :name, "Name", class: "label" %>
+        <div class="control">
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "input", placeholder: "Name" %>
+        </div>
+      </div>
+      <div class="field">
+        <%= f.label :surname, "Surname", class: "label" %>
+        <div class="control">
+          <%= f.text_field :surname, autofocus: true, autocomplete: "surname", class: "input", placeholder: "Surname" %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :email, "Email", class: "label" %>
+    <div class="control">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input", placeholder: "Email" %>
+    </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :password, "Password", class: "label" %>
+    <div class="control">
+      <%= f.password_field :password, autocomplete: "new-password", class: "input", placeholder: "Password" %>
+    </div>
+    <% if @minimum_password_length %>
+      <p class="help">Passwords must have 8 characters, 1 uppercase, 1 lowercase and 1 special</p>
+    <% end %>
+  </div>
+
+  <div class="field mb-4">
+    <%= f.label :password_confirmation, "Password Confirmation", class: "label" %>
+    <div class="control"><%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input", placeholder: "Password Confirmation" %></div>
+  </div>
+
+  <div class="actions field">
+    <%= f.submit "Sign Up", class: "button is-link" %>
+  </div>
+
+<% end %>
+
+<%= render "devise/shared/links" %>

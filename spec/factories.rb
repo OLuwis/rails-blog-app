@@ -1,13 +1,17 @@
 require "factory_bot_rails"
 
 FactoryBot.define do
+  factory :user do
+    
+  end
+
   factory :comment do
-    body { "MyString" }
-    post { nil }
+    body { "Comment" }
+    post { 1 }
   end
 
   factory :post do
-    title { "ABCD" }
-    body { "Lorem Ipsum" }
+    title { "Title" }
+    body { "Text" }
   end
 end

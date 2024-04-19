@@ -19,6 +19,22 @@ describe Post, type: :model do
       expect(FactoryBot.build(:post, body: nil)).not_to be_valid
     end
 
-    
+    it "validates the message for blank text" do
+      post = FactoryBot.build(:post, title: "a" * 151)
+      post.valid?
+      expect(post.errors[:title]).to include("Title cannot exceed 150 characters")
+    end
+
+    it "validates the message for blank title" do
+      post = FactoryBot.build(:post, title: nil)
+      post.valid?
+      expect(post.errors[:title]).to include("Title cannot be blank")
+    end
+
+    it "validates the message for blank text" do
+      post = FactoryBot.build(:post, body: nil)
+      post.valid?
+      expect(post.errors[:body]).to include("Body cannot be blank")
+    end
   end
 end

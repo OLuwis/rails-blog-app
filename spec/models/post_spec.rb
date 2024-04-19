@@ -34,7 +34,7 @@ describe Post, type: :model do
     it "validates the message for blank text" do
       post = FactoryBot.build(:post, body: nil)
       post.valid?
-      expect(post.errors[:body]).to include("Body cannot be blank")
+      expect(post.errors[:body]).to include("Text cannot be blank")
     end
   end
 end

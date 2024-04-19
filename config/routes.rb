@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :posts do
     get "/page/:page", action: :index, on: :collection
+    resources :comments, only: [:new, :create, :destroy]
   end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

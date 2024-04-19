@@ -35,6 +35,7 @@
   
   <h1 class="title mb-4"><%= @post.title %></h1>
   <p class="subtitle"><%= @post.body %></p>
-  <div class="divider">Comments (40)</div>
-  
+  <div class="divider mb-3">Comments (40)</div>
+  <%= render "comments/form" %>
+  <%= render "comments/card" %>
 </div>

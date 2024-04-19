@@ -1,0 +1,20 @@
+<%= form_with model: [@post, @post.comments], url: post_comments_path(@post) do |form| %>
+  <div class="is-flex mb-4">
+    <span class="icon is-large mt-1">
+      <i class="bx bxs-user-circle is-size-1"></i>
+    </span>
+    <div class="container is-fluid px-3">
+      <div class="field is-fullwidth mt-1">
+        <%= form.label :comment_body, "Luis Miguel", class: "label" %>
+        <div class="control">
+          <%= form.text_area :comment_body, required: true, class: "textarea", placeholder: "Write your comment here..." %>
+        </div>
+      </div>
+      <div class="field is-grouped is-grouped-right pt-2">
+        <div class="control">
+          <%= form.submit "Submit", class: "button is-link" %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

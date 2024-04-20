@@ -5,12 +5,14 @@
     </span>
     <div class="container is-fluid px-3">
       <h1 class="mt-1">
-        <span class="has-text-weight-bold">Luis Miguel</span> - 
-        <%= time_ago_in_words(comment.created_at).capitalize %> ago 
-        <%= link_to "Delete", post_comment_path(comment.post_id, comment.id), class: "button is-small is-danger p-1 px-2 ml-1", data: {
-          turbo_method: :delete,
-          turbo_confirm: "Are you sure?"
-        } %>
+        <span class="has-text-weight-bold"><%= comment.user.name %> <%= comment.user.surname %></span> - 
+        <%= time_ago_in_words(comment.created_at).capitalize %> ago
+        <% if user_signed_in? && comment.user.id == current_user.id %>
+          <%= link_to "Delete", post_comment_path(comment.post_id, comment.id), class: "button is-small is-danger p-1 px-2 ml-1", data: {
+            turbo_method: :delete,
+            turbo_confirm: "Are you sure?"
+          } %>
+        <% end %> 
       </h1>
       <p class="mt-1"><%= comment.body %></p>
     </div>

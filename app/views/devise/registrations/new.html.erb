@@ -1,4 +1,4 @@
-<h2 class="title">Sign up</h2>
+<h2 class="title">Sign Up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -32,9 +32,7 @@
     <div class="control">
       <%= f.password_field :password, autocomplete: "new-password", class: "input", placeholder: "Password" %>
     </div>
-    <% if @minimum_password_length %>
-      <p class="help">Passwords must have 8 characters, 1 uppercase, 1 lowercase and 1 special</p>
-    <% end %>
+    <p class="help">(Passwords must have 8 characters, 1 uppercase, 1 lowercase and 1 special)</p>
   </div>
 
   <div class="field mb-4">

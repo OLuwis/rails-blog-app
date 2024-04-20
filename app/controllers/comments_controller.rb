@@ -1,17 +1,16 @@
 class CommentsController < ApplicationController
   def new
-    @post = Post.find(params[:id])
-    @comment = Comment.new
+    @comment = Post.find(params[:id]).comments.build
   end
 
   def create
     post = Post.find(params[:post_id])
-    @comment = post.comments.create(body: comment_params[:comment_body])
+    @comment = post.comments.build(body: comment_params[:comment_body], user: current_user)
 
     if @comment.save
-      redirect_to post_path(post)
+      redirect_to post_path(post), notice: "Comment was successfully created"
     else
-      redirect_to post_path(post)
+      redirect_to post_path(post), status: :unprocessable_entity
     end
   end
 
@@ -19,7 +18,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.destroy
 
-    redirect_to post_path(params[:post_id])
+    redirect_to post_path(params[:post_id]), notice: "Comment was successfully deleted"
   end
 
   private

@@ -1,19 +1,21 @@
 <div>
-  <div class="field is-grouped">
-    <div class="control">
-      <%= link_to "Edit", edit_post_path(@post), class: "button is-success is-small" %>
+  <% if user_signed_in? && @post.user.id == current_user.id %>
+    <div class="field is-grouped">
+      <div class="control">
+        <%= link_to "Edit", edit_post_path(@post), class: "button is-success is-small" %>
+      </div>
+      <div class="control">
+        <%= link_to "Delete", post_path(@post), class: "button is-danger is-small", data: {
+          turbo_method: :delete,
+          turbo_confirm: "Are you sure?"
+        } %>
+      </div>
     </div>
-    <div class="control">
-      <%= link_to "Delete", post_path(@post), class: "button is-danger is-small", data: {
-        turbo_method: :delete,
-        turbo_confirm: "Are you sure?"
-      } %>
-    </div>
-  </div>
+  <% end %>
 
   <div>
     <div class="is-size-6 has-text-weight-semibold mb-2">
-      <p>Author: Luis Miguel</p>
+      <p>Author: <%= @post.user.name %> <%= @post.user.surname %></p>
       <p>Created: <%= time_ago_in_words(@post.created_at).capitalize %> ago</p>
       <p>Edited: <%= time_ago_in_words(@post.updated_at).capitalize %> ago</p>
     </div>
@@ -35,7 +37,7 @@
   
   <h1 class="title mb-4"><%= @post.title %></h1>
   <p class="subtitle"><%= @post.body %></p>
-  <div class="divider mb-3">Comments (40)</div>
+  <div class="divider mb-3">Comments (<%= @post.comments.count %>)</div>
   <%= render "comments/form" %>
   <%= render "comments/card" %>
 </div>

@@ -2,6 +2,8 @@ source "https://rubygems.org"
 
 ruby "3.2.3"
 
+gem 'activerecord-import'
+
 # Devise for authentication
 gem "devise"
 

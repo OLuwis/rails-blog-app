@@ -15,7 +15,11 @@
 
   <div>
     <div class="is-size-6 has-text-weight-semibold mb-2">
-      <p>Author: <%= @post.user.name %> <%= @post.user.surname %></p>
+      <p>Author: 
+        <%= link_to posts_path(user_id: @post.user.id), class: "is-underlined" do %>
+          <%= @post.user.name %> <%= @post.user.surname %>
+        <% end %>
+      </p>
       <p>Created: <%= time_ago_in_words(@post.created_at).capitalize %> ago</p>
       <p>Edited: <%= time_ago_in_words(@post.updated_at).capitalize %> ago</p>
     </div>
@@ -23,15 +27,9 @@
   <div class="divider my-2 mb-4">Tags</div>
 
   <div class="tags">
-    <%= link_to "Action", root_path, class: "tag is-rounded is-link" %>
-    <%= link_to "Action", root_path, class: "tag is-rounded is-link" %>
-    <%= link_to "Action", root_path, class: "tag is-rounded is-link" %>
-    <%= link_to "Action", root_path, class: "tag is-rounded is-link" %>
-    <%= link_to "Action", root_path, class: "tag is-rounded is-link" %>
-    <%= link_to "Action", root_path, class: "tag is-rounded is-link" %>
-    <%= link_to "Action", root_path, class: "tag is-rounded is-link" %>
-    <%= link_to "Action", root_path, class: "tag is-rounded is-link" %>
-    <%= link_to "Action", root_path, class: "tag is-rounded is-link" %>
+    <% @post.tags.each do |tag| %>
+      <%= link_to tag.name, root_path, class: "tag is-rounded is-link is-capitalized" %>
+    <% end %>
   </div>
   <div class="divider my-0 mb-2">Post</div>
   

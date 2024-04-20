@@ -22,12 +22,13 @@
     </div>
   </div>
   
-  <!--<div class="field">
+  <div class="field">
     <%= form.label :tag, "Tags", class: "label" %>
     <div class="control">
-      <%= form.text_field :tag, class: "input" %>
+      <%= form.text_field :tag, class: "input", placeholder: "Tag1, Tag_2, Tag-3, Tag 4" %>
     </div>
-  </div>-->
+    <p class="help">Tags are delimited by commas, e.g: "Tag1, Tag_2, Tag-3"</p>
+  </div>
 
   <div class="field is-grouped is-grouped-centered pt-2">
     <div class="control">

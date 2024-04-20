@@ -8,13 +8,8 @@
   </div>
   <div class="divider m-0 mb-3">Tags</div>
   <div class="tags">
-    <div class="tag is-rounded is-link">Action</div>
-    <div class="tag is-rounded is-link">Horror</div>
-    <div class="tag is-rounded is-link">Test</div>
-    <div class="tag is-rounded is-link">Ruby</div>
-    <div class="tag is-rounded is-link">Rails</div>
-    <div class="tag is-rounded is-link">Tecnology</div>
-    <div class="tag is-rounded is-link">Youtube</div>
-    <div class="tag is-rounded is-link">Back-end</div>
+    <% post.tags.each do |tag| %>
+      <div class="tag is-rounded is-link is-capitalized"><%= tag.name %></div>
+    <% end %>
   </div>
 <% end %>

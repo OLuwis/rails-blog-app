@@ -1,6 +1,14 @@
 require "factory_bot_rails"
 
 FactoryBot.define do
+  factory :post_tag do
+    
+  end
+
+  factory :tag do
+    name { "MyString" }
+  end
+
   factory :user do
     
   end

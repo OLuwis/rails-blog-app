@@ -1,17 +1,17 @@
-<h2 class="title">Forgot Your Password?</h2>
+<h2 class="title"><%= t("auth.reset.title") %></h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field mb-4">
-    <%= f.label :email, "Email", class: "label" %>
+    <%= f.label :email, t("auth.reset.email"), class: "label" %>
     <div class="control">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input", placeholder: "Email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input", placeholder: t("auth.reset.email") %>
     </div>
   </div>
 
   <div class="actions field">
-    <%= f.submit "Reset password", class: "button is-link" %>
+    <%= f.submit t("auth.reset.reset"), class: "button is-link" %>
   </div>
 <% end %>
 

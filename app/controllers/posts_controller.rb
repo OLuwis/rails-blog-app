@@ -3,6 +3,9 @@ class PostsController < ApplicationController
     if params[:user_id]
       user = User.find(params[:user_id])
       @posts = user.posts.order(created_at: :desc).page params[:page]
+    elsif params[:tag]
+      tag = Tag.find(params[:tag])
+      @posts = tag.posts.order(created_at: :desc).page params[:page]
     else
       @posts = Post.order(created_at: :desc).page params[:page]
     end
@@ -10,6 +13,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments.order(created_at: :desc)
   end
 
   def new
@@ -21,7 +25,7 @@ class PostsController < ApplicationController
     extract_tags(post_params[:tag])
 
     if @post.save
-      redirect_to root_path, notice: "Post was successfully created"
+      redirect_to root_path, notice: I18n.t("controller.created", data: "Post")
     else
       render :new, status: :unprocessable_entity
     end
@@ -35,7 +39,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find(params[:id])
 
     if @post.update(post_params)
-      redirect_to post_path(@post), notice: "Post was successfully updated"
+      redirect_to post_path(@post), notice: I18n.t("controller.created", data: "Post")
     else
       render :edit, status: :unprocessable_entity
     end
@@ -45,7 +49,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find(params[:id])
     @post.destroy
 
-    redirect_to root_path, notice: "Post was successfully deleted"
+    redirect_to root_path, notice: I18n.t("controller.created", data: "Post")
   end
 
   private

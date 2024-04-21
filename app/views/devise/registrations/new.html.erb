@@ -1,4 +1,4 @@
-<h2 class="title">Sign Up</h2>
+<h2 class="title"><%= t("auth.signup.title") %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -6,42 +6,42 @@
   <div class="field is-horizontal">
     <div class="field-body">
       <div class="field">
-        <%= f.label :name, "Name", class: "label" %>
+        <%= f.label :name, t("auth.signup.name"), class: "label" %>
         <div class="control">
-          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "input", placeholder: "Name" %>
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", class: "input", placeholder: t("auth.signup.name") %>
         </div>
       </div>
       <div class="field">
-        <%= f.label :surname, "Surname", class: "label" %>
+        <%= f.label :surname, t("auth.signup.surname"), class: "label" %>
         <div class="control">
-          <%= f.text_field :surname, autofocus: true, autocomplete: "surname", class: "input", placeholder: "Surname" %>
+          <%= f.text_field :surname, autofocus: true, autocomplete: "surname", class: "input", placeholder: t("auth.signup.surname") %>
         </div>
       </div>
     </div>
   </div>
 
   <div class="field">
-    <%= f.label :email, "Email", class: "label" %>
+    <%= f.label :email, t("auth.signup.email"), class: "label" %>
     <div class="control">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input", placeholder: "Email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input", placeholder: t("auth.signup.email") %>
     </div>
   </div>
 
   <div class="field">
-    <%= f.label :password, "Password", class: "label" %>
+    <%= f.label :password, t("auth.signup.password"), class: "label" %>
     <div class="control">
-      <%= f.password_field :password, autocomplete: "new-password", class: "input", placeholder: "Password" %>
+      <%= f.password_field :password, autocomplete: "new-password", class: "input", placeholder: t("auth.signup.password") %>
     </div>
-    <p class="help">(Passwords must have 8 characters, 1 uppercase, 1 lowercase and 1 special)</p>
+    <p class="help">(<%= t("auth.signup.requirement") %>)</p>
   </div>
 
   <div class="field mb-4">
-    <%= f.label :password_confirmation, "Password Confirmation", class: "label" %>
-    <div class="control"><%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input", placeholder: "Password Confirmation" %></div>
+    <%= f.label :password_confirmation, t("auth.signup.confirmation"), class: "label" %>
+    <div class="control"><%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input", placeholder: t("auth.signup.confirmation") %></div>
   </div>
 
   <div class="actions field">
-    <%= f.submit "Sign Up", class: "button is-link" %>
+    <%= f.submit t("auth.signup.title"), class: "button is-link" %>
   </div>
 
 <% end %>

@@ -1,31 +1,78 @@
-# Files in the config/locales directory are used for internationalization and
-# are automatically loaded by Rails. If you want to use locales other than
-# English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t "hello"
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t("hello") %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# To learn more about the API, please read the Rails Internationalization guide
-# at https://guides.rubyonrails.org/i18n.html.
-#
-# Be aware that YAML interprets the following case-insensitive strings as
-# booleans: `true`, `false`, `on`, `off`, `yes`, `no`. Therefore, these strings
-# must be quoted to be interpreted as strings. For example:
-#
-#     en:
-#       "yes": yup
-#       enabled: "ON"
-
 en:
-  hello: "Hello world"
+  time: "ago"
+  controller: 
+    created: "%{data} was successfully created"
+    updated: "%{data} was successfully updated"
+    deleted: "%{data} was successfully deleted"
+  auth:
+    login:
+      title: "Login"
+      email: "Email"
+      password: "Password"
+      remember: "Remember Me"
+      exit: "Sign Out"
+    signup:
+      title: "Sign Up"
+      name: "Name"
+      surname: "Surname"
+      email: "Email"
+      password: "Password"
+      confirmation: "Confirm Password"
+      requirement: "Passwords must have 8 characters, 1 uppercase, 1 lowercase and 1 special"
+    reset:
+      title: "Forgot Your Password?"
+      email: "Email"
+      reset: "Reset Password"
+    edit:
+      profile: "Profile"
+      name: "Name"
+      surname: "Surname"
+      email: "Email"
+      password: "Password"
+      confirmation: "Confirm Password"
+      current: "Current Password"
+      requirement: "Passwords must have 8 characters, 1 uppercase, 1 lowercase and 1 special"
+      unchanged: "Leave it blank if you don't want to change it"
+      current_req: "We need your current password to confirm your changes"
+      update: "Update Account"
+      delete: "Delete Account"
+      return : "Return"
+    update:
+      title: "Change Your Password"
+      new: "New Password"
+      confirm: "Confirm New Password"
+      requirement: "Passwords must have 8 characters, 1 uppercase, 1 lowercase and 1 special"
+      change: "Change Password"
+    mailer:
+      hello: "Hello"
+      second: "Someone has requested a link to change your password. You can do this through the link below."
+      link: "Change My Password"
+      third: "If you didn't request this, please ignore this email."
+      fourth: "Your password won't change until you access the link above and create a new one."
+  post:
+    author: "Author"
+    created: "Created"
+    edited: "Edited"
+    edit: "Edit"
+    delete: "Delete"
+    confirm: "Are you sure?"
+    form:
+      title: "New Post"
+      edit: "Edit Post"
+      title_label: "Title"
+      title_holder: "Title of the post"
+      title_helper: "Title shouldn't exceed 150 characters"
+      body_label: "Text"
+      body_holder: "Write your text here..."
+      tags_label: "Tags"
+      tags_holder: "Tag1, Tag_2, Tag-3, Tag 4..."
+      tags_helper: "Tags are delimited by commas, e.g: 'Tag1, Tag_2, Tag-3, Tag 4...'"
+      submit: "Submit"
+      cancel: "Cancel"
+  comment: 
+    title: "Comments"
+    name: "Anonymous"
+    text: "Write your comment here..."
+    submit: "Submit"
+    delete: "Delete"
+    confirm: "Are you sure?"

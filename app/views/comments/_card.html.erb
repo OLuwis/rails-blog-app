@@ -1,18 +1,26 @@
-<% @post.comments.each do |comment| %>
+<% @comments.each do |comment| %>
   <div class="is-flex mb-4">
     <span class="icon is-large mt-1">
       <i class="bx bxs-user-circle is-size-1"></i>
     </span>
     <div class="container is-fluid px-3">
       <h1 class="mt-1">
-        <span class="has-text-weight-bold"><%= comment.user.name %> <%= comment.user.surname %></span> - 
-        <%= time_ago_in_words(comment.created_at).capitalize %> ago
-        <% if user_signed_in? && comment.user.id == current_user.id %>
-          <%= link_to "Delete", post_comment_path(comment.post_id, comment.id), class: "button is-small is-danger p-1 px-2 ml-1", data: {
-            turbo_method: :delete,
-            turbo_confirm: "Are you sure?"
-          } %>
-        <% end %> 
+        <span class="has-text-weight-bold">
+          <% if comment.user %>
+            <%= comment.user.name %> <%= comment.user.surname %>
+          <% else %>
+            <%= t("comment.name") %>
+          <% end %>
+        </span> - 
+          <%= time_ago_in_words(comment.created_at).capitalize %> <%= t("time") %>
+        <% if user_signed_in? && comment.user %>
+          <% if comment.user.id == current_user.id %>
+            <%= link_to t("comment.delete"), post_comment_path(comment.post_id, comment.id), class: "button is-small is-danger p-1 px-2 ml-1", data: {
+              turbo_method: :delete,
+              turbo_confirm: t("comment.confirm")
+            } %>
+          <% end %> 
+        <% end %>
       </h1>
       <p class="mt-1"><%= comment.body %></p>
     </div>

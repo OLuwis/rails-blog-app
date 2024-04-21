@@ -13,16 +13,20 @@
     </span>
     <div class="container is-fluid px-3">
       <div class="field is-fullwidth mt-1">
-        <% if user_signed_in? %>
-          <p class="label"><%= current_user.name %> <%= current_user.surname %></p>
-        <% end %>
+        <p class="label">
+          <% if user_signed_in? %>
+            <%= current_user.name %> <%= current_user.surname %>
+          <% else %>
+            <%= t("comment.name") %>
+          <% end %>
+        </p>
         <div class="control">
-          <%= form.text_area :comment_body, required: true, class: "textarea", placeholder: "Write your comment here..." %>
+          <%= form.text_area :comment_body, required: true, class: "textarea", placeholder: t("comment.text") %>
         </div>
       </div>
       <div class="field is-grouped is-grouped-right pt-2">
         <div class="control">
-          <%= form.submit "Submit", class: "button is-link" %>
+          <%= form.submit t("comment.submit"), class: "button is-link" %>
         </div>
       </div>
     </div>

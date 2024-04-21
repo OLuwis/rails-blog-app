@@ -3,8 +3,8 @@
   <p class="subtitle is-size-5 is-size-6-touch m-0 mb-2"><%= truncate(post.body, length: 350, omission: "...") %></p>
   <div class="divider m-0 mb-2">Info</div>
   <div class="is-size-6 is-size-7-touch has-text-weight-semibold mb-2">
-    <p class="">Author: <%= post.user.name %> <%= post.user.surname %></p>
-    <p class=""><%= time_ago_in_words(post.created_at).capitalize %> ago</p>
+    <p>Author: <%= post.user.name %> <%= post.user.surname %></p>
+    <p><%= time_ago_in_words(post.created_at).capitalize %> <%= t("time") %></p>
   </div>
   <div class="divider m-0 mb-3">Tags</div>
   <div class="tags">

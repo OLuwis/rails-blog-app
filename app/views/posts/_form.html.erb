@@ -8,34 +8,34 @@
   <% end %>
   
   <div class="field">
-    <%= form.label :title, "Title", class: "label" %>
+    <%= form.label :title, t("post.form.title_label"), class: "label" %>
     <div class="control">
-      <%= form.text_field :title, required: true, maxlength: 150, class: "input", placeholder: "Title of the post" %>
+      <%= form.text_field :title, required: true, maxlength: 150, class: "input", placeholder: t("post.form.title_holder") %>
     </div>
-    <p class="help">Title shouldn't exceed 150 characters</p>
+    <p class="help"><%= t("post.form.title_helper") %></p>
   </div>
 
   <div class="field">
-    <%= form.label :body, "Text", class: "label" %>
+    <%= form.label :body, t("post.form.body_label"), class: "label" %>
     <div class="control">
-      <%= form.text_area :body, required: true, class: "textarea", placeholder: "Write your text here..." %>
+      <%= form.text_area :body, required: true, class: "textarea", placeholder: t("post.form.body_holder") %>
     </div>
   </div>
   
   <div class="field">
-    <%= form.label :tag, "Tags", class: "label" %>
+    <%= form.label :tags, t("post.form.tags_label"), class: "label" %>
     <div class="control">
-      <%= form.text_field :tag, class: "input", placeholder: "Tag1, Tag_2, Tag-3, Tag 4" %>
+      <%= form.text_field :tags, class: "input", placeholder: t("post.form.tags_holder"), value: @post.tags.pluck(:name).join(", ") %>
     </div>
-    <p class="help">Tags are delimited by commas, e.g: "Tag1, Tag_2, Tag-3"</p>
+    <p class="help"><%= t("post.form.tags_helper") %></p>
   </div>
 
   <div class="field is-grouped is-grouped-centered pt-2">
     <div class="control">
-      <%= form.submit "Submit", class: "button is-link" %>
+      <%= form.submit t("post.form.submit"), class: "button is-link" %>
     </div>
     <div class="control">
-      <%= link_to "Cancel", root_path, class: "button has-text-white is-danger" %>
+      <%= link_to t("post.form.cancel"), root_path, class: "button has-text-white is-danger" %>
     </div>
   </div>
 <% end %>

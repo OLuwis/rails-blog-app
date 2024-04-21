@@ -5,15 +5,24 @@
       Rails Blog
     </a>
     <div class="navbar-item px-0">
-      <% if user_signed_in? %>
-        <%= link_to "New post", new_post_path, class: "button is-link is-responsive"%>
+      <% if I18n.locale == :en %>
+        <%= link_to change_locale_path(locale: "pt-BR"), class: "mr-2" do %>
+          <span class="fi fi-us"></span>
+        <% end %>
+      <% elsif I18n.locale == :"pt-BR" %>
+        <%= link_to change_locale_path(locale: "en"), class: "mr-2" do %>
+          <span class="fi fi-br"></span>
+        <% end %>
       <% end %>
+
+      <% if user_signed_in? %>
+        <%= link_to t("post.form.title"), new_post_path, class: "button is-link is-responsive"%>
+        <%= render "shared/dropdown" %>
+      <% end %>
+
       <% if !user_signed_in? %>
-        <%= link_to "Sign Up", new_user_registration_path, class: "button is-responsive ml-2" %>
-        <%= link_to "Login", new_user_session_path, class: "button is-responsive is-link ml-2" %>
-      <% end %>
-      <% if user_signed_in? %>
-        <%= render "shared/dropdown" %>      
+        <%= link_to t("auth.signup.title"), new_user_registration_path, class: "button is-responsive ml-2" %>
+        <%= link_to t("auth.login.title"), new_user_session_path, class: "button is-responsive is-link ml-2" %>
       <% end %>
     </div>
   </div>

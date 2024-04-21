@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   root "posts#index"
 
+  get "/change_locale", to: "application#change_locale", as: :change_locale
+
   resources :posts do
     get "/page/:page", action: :index, on: :collection
     resources :comments, only: [:create, :destroy]

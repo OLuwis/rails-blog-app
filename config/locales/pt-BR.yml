@@ -95,3 +95,16 @@ pt-BR:
     message: "Arquivo enviado com sucesso. Aguarde a criação de seus posts."
     label: "Escolher um arquivo..."
     holder: "Nenhum Arquivo"
+    info: 'Posts automatizados são feitos usando um arquivo de extensão ".txt", o arquivo de texto é enviado e salvo na nossa base de dados, e então é processado e criado os posts relativo ao usuário que o enviou, os posts que aceitamos são organizados e formatados da seguinte forma:'
+    example:
+      one: 
+        title: "Primeiro Post"
+        body: "Este é o conteúdo do primeiro post."
+        tags: "Primeira_Tag, Segunda Tag, Terceira-Tag, QuartaTag"
+      two:
+        title: "Segundo Post"
+        body: "Este é o conteúdo do segundo post."
+        tags: "UnicaTag"
+      three:
+        title: "Terceiro Post"
+        body: "Este é o conteúdo do terceiro post."

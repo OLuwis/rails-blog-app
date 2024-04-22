@@ -82,3 +82,16 @@ en:
     message: "File sended successfully. Wait for the creation of your posts."
     label: "Choose a file..."
     holder: "No File"
+    info: "Automated posts are made using a '.txt' file extension. The text file is uploaded and saved in our database, then it is processed and posts are created relative to the user who submitted it. The posts we accept are organized and formatted as follows:"
+    example:
+      one: 
+        title: "First Post"
+        body: "This is the content of the first post."
+        tags: "First_Tag, Second Tag, Third-Tag, FourthTag"
+      two:
+        title: "Second Post"
+        body: "This is the content of the second post."
+        tags: "SingleTag"
+      three:
+        title: "Third Post"
+        body: "This is the content of the third post."

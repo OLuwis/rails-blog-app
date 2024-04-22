@@ -1,3 +1,24 @@
+<div class="notification is-info has-text-weight-semibold mt-4">
+  <i class='bx bxs-info-circle'></i> <%= t("auto.info") %>
+</div>
+
+<article class="message is-dark">
+  <div class="message-header">
+    <p>Post.txt</p>
+  </div>
+  <div class="message-body" style="white-space: pre-line">Title: <%= t("auto.example.one.title") %>
+    Body: <%= t("auto.example.one.body") %>
+    Tags: <%= t("auto.example.one.tags") %>
+
+    Title: <%= t("auto.example.two.title") %>
+    Body: <%= t("auto.example.two.body") %>
+    Tags: <%= t("auto.example.two.tags") %>
+
+    Title: <%= t("auto.example.three.title") %>
+    Body: <%= t("auto.example.three.body") %>
+  </div>
+</article>
+
 <%= form_with(model: @text, url: queue_path, multipart: true, method: :post) do |form| %>
   <div class="file has-name mb-3 mt-4 is-dark">
     <%= form.label :text, class: "file-label" do %>

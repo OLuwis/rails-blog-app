@@ -1,0 +1,25 @@
+<%= form_with(model: @text, url: queue_path, multipart: true, method: :post) do |form| %>
+  <div class="file has-name mb-3 mt-4 is-dark">
+    <%= form.label :text, class: "file-label" do %>
+      <%= form.file_field :text, class: "file-input" %>
+      <span class="file-cta">
+        <span class="file-icon">
+          <i class="bx bx-upload is-size-4"></i>
+        </span>
+        <span class="file-label ml-1 has-text-weight-semibold"><%= t("auto.label") %></span>
+      </span>
+      <span id="file-name" class="file-name"><%= t("auto.holder") %></span>
+    <% end %>
+  </div>
+  <%= form.submit t("auto.submit"), class: "button is-link" %>
+<% end %>
+
+<script>
+  const input = document.querySelector(".file-input#text")
+  const name = document.querySelector(".file-name#file-name")
+
+  input.addEventListener("change", () => {
+    const file = input.files[0]
+    name.textContent = file ? file.name : t("auto.holder")
+  })
+</script>

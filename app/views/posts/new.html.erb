@@ -1,2 +1,22 @@
 <h1 class="title is-size-3 is-size-4-touch"><%= t("post.form.title") %></h1>
-<%= render "form" %>
+<div class="field has-addons">
+  <div class="control">
+    <% if current_page?(new_post_path) %>
+      <%= link_to "Manual", new_post_path, class: "button is-link" %>
+    <% else %>
+      <%= link_to "Manual", new_post_path, class: "button" %>
+    <% end %>
+  </div>
+  <div class="control">
+    <% if !current_page?(new_post_path) %>
+      <%= link_to "Auto", auto_post_path, class: "button is-link" %>
+    <% else %>
+      <%= link_to "Auto", auto_post_path, class: "button" %>
+    <% end %>
+  </div>
+</div>
+<% if current_page?(new_post_path) %>
+  <%= render "form" %>
+<% else %>
+  <%= render "auto" %>
+<% end %>

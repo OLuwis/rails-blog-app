@@ -71,6 +71,7 @@ pt-BR:
       cancel: "Cancelar"
   comment: 
     title: "Comentários"
+    single: "Comentário"
     name: "Anônimo"
     text: "Escreva seu comentário aqui..."
     submit: "Enviar"
@@ -89,3 +90,8 @@ pt-BR:
       about_x_years: "cerca de %{count} anos"
       over_x_years: "mais de %{count} anos"
       almost_x_years: "quase %{count} anos"
+  auto:
+    submit: "Enviar arquivo"
+    message: "Arquivo enviado com sucesso. Aguarde a criação de seus posts."
+    label: "Escolher um arquivo..."
+    holder: "Nenhum Arquivo"

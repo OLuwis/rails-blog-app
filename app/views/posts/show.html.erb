@@ -14,7 +14,7 @@
   <% end %>
 
   <div>
-    <div class="is-size-6 has-text-weight-semibold mb-2">
+    <div class="is-size-6 has-text-weight-semibold mb-3">
       <p><%= t("post.author") %>: 
         <%= link_to posts_path(user_id: @post.user.id), class: "is-underlined" do %>
           <%= @post.user.name %> <%= @post.user.surname %>
@@ -24,15 +24,11 @@
       <p><%= t("post.edited") %>: <%= time_ago_in_words(@post.updated_at).capitalize %> <%= t("time") %></p>
     </div>
   </div>
-  <div class="divider my-2 mb-4">Tags</div>
-
   <div class="tags">
     <% @post.tags.each do |tag| %>
-      <%= link_to tag.name, posts_path(tag: tag.id), class: "tag is-rounded is-link is-capitalized" %>
+      <%= link_to tag.name, posts_path(tag: tag.id), class: "tag is-link is-capitalized" %>
     <% end %>
   </div>
-  <div class="divider my-0 mb-2">Post</div>
-  
   <h1 class="title mb-4"><%= @post.title %></h1>
   <p class="subtitle"><%= @post.body %></p>
   <div class="divider mb-3"><%= t("comment.title") %> (<%= @post.comments.count %>)</div>

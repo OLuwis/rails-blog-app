@@ -71,8 +71,14 @@ en:
       cancel: "Cancel"
   comment: 
     title: "Comments"
+    single: "Comment"
     name: "Anonymous"
     text: "Write your comment here..."
     submit: "Submit"
     delete: "Delete"
     confirm: "Are you sure?"
+  auto:
+    submit: "Send File"
+    message: "File sended successfully. Wait for the creation of your posts."
+    label: "Choose a file..."
+    holder: "No File"

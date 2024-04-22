@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   devise_for :users
   root "posts#index"
 
+  get "posts/new/auto", to: "posts#new", as: :auto_post
+  post "posts/new/auto", to: "posts#queue", as: :queue
+
   get "/change_locale", to: "application#change_locale", as: :change_locale
 
   resources :posts do

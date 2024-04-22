@@ -1,6 +1,10 @@
 require "factory_bot_rails"
 
 FactoryBot.define do
+  factory :text do
+    file { nil }
+  end
+
   factory :post_tag do
     
   end

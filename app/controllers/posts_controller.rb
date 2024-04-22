@@ -22,7 +22,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.build(title: post_params[:title], body: post_params[:body])
-    extract_tags(post_params[:tag])
+    extract_tags(post_params[:tags]) if post_params[:tags]
 
     if @post.save
       redirect_to root_path, notice: I18n.t("controller.created", data: "Post")
@@ -39,7 +39,7 @@ class PostsController < ApplicationController
     @post = current_user.posts.find(params[:id])
 
     if @post.update(post_params)
-      redirect_to post_path(@post), notice: I18n.t("controller.created", data: "Post")
+      redirect_to post_path(@post), notice: I18n.t("controller.updated", data: "Post")
     else
       render :edit, status: :unprocessable_entity
     end
@@ -49,7 +49,16 @@ class PostsController < ApplicationController
     @post = current_user.posts.find(params[:id])
     @post.destroy
 
-    redirect_to root_path, notice: I18n.t("controller.created", data: "Post")
+    redirect_to root_path, notice: I18n.t("controller.deleted", data: "Post")
+  end
+
+  def queue
+    @file = Text.new(file: params[:text])
+    @file.save
+
+    ProcessTextFileJob.perform_async(@file.id, current_user.id)
+
+    redirect_to root_path, notice: I18n.t("auto.message")
   end
 
   private
@@ -60,6 +69,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :body, :tag)
+      params.require(:post).permit(:title, :body, :tags)
     end
 end

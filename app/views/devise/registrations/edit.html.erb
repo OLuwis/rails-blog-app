@@ -51,18 +51,16 @@
   <div class="field">
     <%= f.label :current_password, t("auth.edit.current"), class: "label" %>
     <div class="control">
-      <%= f.password_field :current_password, autocomplete: "current-password", class: "input", placeholder: t("auth.edit.current") %>
+      <%= f.password_field :current_password, required: true, autocomplete: "current-password", class: "input", placeholder: t("auth.edit.current") %>
     </div>
     <p class="help">(<%= t("auth.edit.current_req") %>)</p>
   </div>
 
   <div class="actions field is-grouped">
     <%= f.submit t("auth.edit.update"), class: "button is-link" %>
-    <%= button_to t("auth.edit.delete"), registration_path(resource_name), data: { 
-      turbo_method: :delete, 
-      turbo_confirm: "Are you sure?" 
-    }, class: "button is-danger" %>
   </div>
 <% end %>
+
+<%= button_to t("auth.edit.delete"), registration_path(resource_name), data: { turbo_confirm: t("post.confirm") },method: :delete , class: "button is-danger mt-3" %>
 
 <%= link_to t("auth.edit.return"), root_path, class: "button is-ghost" %>

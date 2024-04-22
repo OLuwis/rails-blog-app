@@ -1,5 +1,5 @@
 <%= paginator.render do -%>
-  <nav class="pagination pagination-list px-6 mx-6 mb-3" role="navigation" aria-label="pager">
+  <nav class="pagination pagination-list px-6 mb-3 pt-2" role="navigation" aria-label="pager" style="width:fit-content; margin-inline:auto">
     <% each_page do |page| -%>
       <% if page.display_tag? -%>
         <%= page_tag page %>

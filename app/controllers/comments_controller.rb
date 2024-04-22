@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     end
 
     if @comment.save
-      redirect_to post_path(post), notice: I18n.t("controller.created", data: "Comment")
+      redirect_to post_path(post), notice: I18n.t("controller.created", data: I18n.t("comment.single"))
     else
       redirect_to post_path(post), status: :unprocessable_entity
     end
@@ -22,7 +22,7 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
     @comment.destroy
 
-    redirect_to post_path(params[:post_id]), notice: I18n.t("controller.created", data: "Comment")
+    redirect_to post_path(params[:post_id]), notice: I18n.t("controller.deleted", data: I18n.t("comment.single"))
   end
 
   private

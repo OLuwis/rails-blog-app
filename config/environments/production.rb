@@ -1,6 +1,23 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+  config.action_mailer.default_url_options = { :host => 'localhost', port: 3000 }
+
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.default :charset => "utf-8"
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: "smtp.gmail.com",
+    domain: "gmail.com",
+    port: 587,
+    user_name: "railsblog.noreply@gmail.com",
+    password: ENV["GMAIL_PASS"],
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.

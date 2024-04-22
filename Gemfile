@@ -4,11 +4,13 @@ ruby "3.2.3"
 
 gem 'activerecord-import'
 
+gem "uuid"
+
 # SideKiq for asynchronous jobs
-gem 'sidekiq'
+gem "sidekiq"
 
 # Redis for SideKiq
-gem 'redis'
+gem "redis"
 
 # Devise for authentication
 gem "devise"
@@ -23,7 +25,7 @@ gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 gem "sprockets-rails"
 
 # Use sqlite3 as the database for Active Record
-gem "sqlite3", "~> 1.4"
+gem "pg"
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"

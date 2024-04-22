@@ -1,6 +1,6 @@
 class CreateTexts < ActiveRecord::Migration[7.1]
   def change
-    create_table :texts do |t|
+    create_table :texts, id: :uuid do |t|
 
       t.timestamps
     end

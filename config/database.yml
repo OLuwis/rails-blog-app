@@ -2,9 +2,9 @@ default: &default
   adapter: postgresql
   pool: 5
   timeout: 5000
-  host: dpg-cois0on79t8c738ma0r0-a.oregon-postgres.render.com
-  username: luwis
-  password: <%= ENV.fetch("PSQL_PASS") %>
+  host: <%= ENV["PSQL_HOST"] || "localhost" %>
+  username: <%= ENV["PSQL_USERNAME"] %>
+  password: <%= ENV["PSQL_PASSWORD"] %>
 
 development:
   <<: *default

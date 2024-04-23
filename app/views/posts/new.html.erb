@@ -7,16 +7,5 @@
       <%= link_to "Manual", new_post_path, class: "button" %>
     <% end %>
   </div>
-  <div class="control">
-    <% if !current_page?(new_post_path) %>
-      <%= link_to "Auto", auto_post_path, class: "button is-link" %>
-    <% else %>
-      <%= link_to "Auto", auto_post_path, class: "button" %>
-    <% end %>
-  </div>
 </div>
-<% if current_page?(new_post_path) %>
-  <%= render "form" %>
-<% else %>
-  <%= render "auto" %>
-<% end %>
+<%= render "form" %>

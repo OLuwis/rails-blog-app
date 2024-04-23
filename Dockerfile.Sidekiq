@@ -20,7 +20,7 @@ RUN bundle install
 COPY . .
 
 # Expose port (if needed)
-# EXPOSE 8080
+EXPOSE 8080
 
 # Run Sidekiq
 CMD ["bundle", "exec", "sidekiq", "-e", "production"]

@@ -1,10 +1,7 @@
 default: &default
   adapter: postgresql
+  url: <%= ENV["POSTGRES_URL"] %>
   pool: 5
-  timeout: 5000
-  host: <%= ENV["PSQL_HOST"] || "localhost" %>
-  username: <%= ENV["PSQL_USERNAME"] %>
-  password: <%= ENV["PSQL_PASSWORD"] %>
 
 development:
   <<: *default
@@ -12,7 +9,8 @@ development:
 
 test:
   <<: *default
-  database: testDb
+  adapter: sqlite3
+  database: storage/test.sqlite3
 
 production:
   <<: *default

@@ -1,0 +1,53 @@
+version: "3.8"
+
+volumes:
+  postgres:
+  
+services:
+  server:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - RAILS_MASTER_KEY=11c1dbb29789ab80cabdf173fe97634a
+      - REDIS_URL=redis://redis:6379
+      - DATABASE_URL=postgres://root:password@postgres/
+      - HOST_NAME=localhost
+      - GMAIL_PASSWORD=nnyl kgyj mcmb qhjq
+    depends_on:
+      redis:
+        condition: service_started
+      postgres:
+        condition: service_healthy
+
+  # worker:
+  #   build: .
+  #   command: bundle exec sidekiq -e production
+  #   environment:
+  #     - RAILS_MASTER_KEY=11c1dbb29789ab80cabdf173fe97634a
+  #     - REDIS_URL=redis://redis:6379
+  #     - DATABASE_URL=postgres://root:password@postgres/
+  #     - CONTAINER_NAME=server
+  #   depends_on:
+  #     redis:
+  #       condition: service_started
+  #     postgres:
+  #       condition: service_healthy
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: pg_isready
+      interval: 2s
+      timeout: 5s
+      retries: 30
+
+  redis:
+    image: redis:latest

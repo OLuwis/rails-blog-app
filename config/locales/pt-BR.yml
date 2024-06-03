@@ -1,110 +1,97 @@
 pt-BR:
-  time: "atrás"
-  controller: 
-    created: "%{data} foi criado com sucesso"
-    updated: "%{data} foi atualizado com sucesso"
-    deleted: "%{data} foi deletado com sucesso"
   auth:
-    login:
-      title: "Entrar"
-      email: "Email"
-      password: "Senha"
-      remember: "Lembrar-me"
-      exit: "Sair"
-    signup:
-      title: "Cadastrar"
-      name: "Nome"
-      surname: "Sobrenome"
-      email: "Email"
-      password: "Senha"
-      confirmation: "Confirmar Senha"
-      requirement: "As senhas devem ter 8 caracteres, 1 maiúscula, 1 minúscula e 1 especial"
-    reset:
-      title: "Esqueceu Sua Senha?"
-      email: "Email"
-      reset: "Redefinir Senha"
     edit:
-      profile: "Perfil"
-      name: "Nome"
-      surname: "Sobrenome"
-      email: "Email"
-      password: "Senha"
-      confirmation: "Confirmar Senha"
-      current: "Senha Atual"
-      requirement: "As senhas devem ter 8 caracteres, 1 maiúscula, 1 minúscula e 1 especial"
-      unchanged: "Deixe em branco se você não deseja alterá-la"
-      current_req: "Precisamos da sua senha atual para confirmar suas alterações"
-      update: "Atualizar Conta"
-      delete: "Excluir Conta"
-      return: "Retornar"
-    update:
-      title: "Alterar Sua Senha"
-      new: "Nova Senha"
-      confirm: "Confirmar Nova Senha"
-      requirement: "As senhas devem ter 8 caracteres, 1 maiúscula, 1 minúscula e 1 especial"
-      change: "Alterar Senha"
+      confirmation: Confirmar Senha
+      current: Senha Atual
+      current_req: Precisamos da sua senha atual para confirmar suas alterações
+      delete: Excluir Conta
+      email: Email
+      name: Nome
+      password: Senha
+      profile: Perfil
+      requirement: As senhas devem ter 8 caracteres, 1 maiúscula, 1 minúscula e 1 especial
+      return: Retornar
+      surname: Sobrenome
+      unchanged: Deixe em branco se você não deseja alterá-la
+      update: Atualizar Conta
+    login:
+      email: Email
+      exit: Sair
+      password: Senha
+      remember: Lembrar-me
+      title: Entrar
     mailer:
-      hello: "Olá"
-      second: "Alguém solicitou um link para alterar sua senha. Você pode fazer isso através do link abaixo."
-      link: "Alterar Minha Senha"
-      third: "Se você não solicitou isso, por favor, ignore este e-mail."
-      fourth: "Sua senha não será alterada até que você acesse o link acima e crie uma nova."
-  post:
-    author: "Autor"
-    created: "Criado"
-    edited: "Editado"
-    edit: "Editar"
-    delete: "Deletar"
-    confirm: "Você tem certeza?"
-    form:
-      title: "Novo Post"
-      edit: "Editar Post"
-      title_label: "Título"
-      title_holder: "Título do post"
-      title_helper: "O título não deve exceder 150 caracteres"
-      body_label: "Texto"
-      body_holder: "Escreva seu texto aqui..."
-      tags_label: "Tags"
-      tags_holder: "Tag1, Tag_2, Tag-3, Tag 4..."
-      tags_helper: "As tags são delimitadas por vírgulas, ex: 'Tag1, Tag_2, Tag-3, Tag 4...'"
-      submit: "Enviar"
-      cancel: "Cancelar"
-  comment: 
-    title: "Comentários"
-    single: "Comentário"
-    name: "Anônimo"
-    text: "Escreva seu comentário aqui..."
-    submit: "Enviar"
-    delete: "Deletar"
-    confirm: "Você tem certeza?"
-  datetime:
-    distance_in_words:
-      less_than_x_seconds: "menos de um segundo"
-      x_seconds: "1 segundo"
-      less_than_x_minutes: "menos de um minuto"
-      x_minutes: "%{count} minutos"
-      about_x_hours: "cerca de %{count} horas"
-      x_days: "%{count} dias"
-      about_x_months: "cerca de %{count} meses"
-      x_months: "%{count} meses"
-      about_x_years: "cerca de %{count} anos"
-      over_x_years: "mais de %{count} anos"
-      almost_x_years: "quase %{count} anos"
+      fourth: Sua senha não será alterada até que você acesse o link acima e crie uma nova.
+      hello: Olá
+      link: Alterar Minha Senha
+      second: Alguém solicitou um link para alterar sua senha. Você pode fazer isso através do link abaixo.
+      third: Se você não solicitou isso, por favor, ignore este e-mail.
+    reset:
+      email: Email
+      reset: Redefinir Senha
+      title: Esqueceu Sua Senha?
+    signup:
+      confirmation: Confirmar Senha
+      email: Email
+      name: Nome
+      password: Senha
+      requirement: As senhas devem ter 8 caracteres, 1 maiúscula, 1 minúscula e 1 especial
+      surname: Sobrenome
+      title: Cadastrar
+    update:
+      change: Alterar Senha
+      confirm: Confirmar Nova Senha
+      new: Nova Senha
+      requirement: As senhas devem ter 8 caracteres, 1 maiúscula, 1 minúscula e 1 especial
+      title: Alterar Sua Senha
   auto:
-    submit: "Enviar arquivo"
-    message: "Arquivo enviado com sucesso. Aguarde a criação de seus posts."
-    label: "Escolher um arquivo..."
-    holder: "Nenhum Arquivo"
-    info: 'Posts automatizados são feitos usando um arquivo de extensão ".txt", o arquivo de texto é enviado e salvo na nossa base de dados, e então é processado e criado os posts relativo ao usuário que o enviou, os posts que aceitamos são organizados e formatados da seguinte forma:'
     example:
-      one: 
-        title: "Primeiro Post"
-        body: "Este é o conteúdo do primeiro post."
-        tags: "Primeira_Tag, Segunda Tag, Terceira-Tag, QuartaTag"
-      two:
-        title: "Segundo Post"
-        body: "Este é o conteúdo do segundo post."
-        tags: "UnicaTag"
+      one:
+        body: Este é o conteúdo do primeiro post.
+        tags: Primeira_Tag, Segunda Tag, Terceira-Tag, QuartaTag
+        title: Primeiro Post
       three:
-        title: "Terceiro Post"
-        body: "Este é o conteúdo do terceiro post."
+        body: Este é o conteúdo do terceiro post.
+        title: Terceiro Post
+      two:
+        body: Este é o conteúdo do segundo post.
+        tags: UnicaTag
+        title: Segundo Post
+    holder: Nenhum Arquivo
+    info: 'Posts automatizados são feitos usando um arquivo de extensão ".txt", o arquivo de texto é enviado e salvo na nossa base de dados, e então é processado e criado os posts relativo ao usuário que o enviou, os posts que aceitamos são organizados e formatados da seguinte forma:'
+    label: Escolher um arquivo...
+    message: Arquivo enviado com sucesso. Aguarde a criação de seus posts.
+    submit: Enviar arquivo
+  comment:
+    confirm: Você tem certeza?
+    delete: Deletar
+    name: Anônimo
+    single: Comentário
+    submit: Enviar
+    text: Escreva seu comentário aqui...
+    title: Comentários
+  controller:
+    created: "%{data} foi criado com sucesso"
+    deleted: "%{data} foi deletado com sucesso"
+    updated: "%{data} foi atualizado com sucesso"
+  post:
+    author: Autor
+    confirm: Você tem certeza?
+    created: Criado
+    delete: Deletar
+    edit: Editar
+    edited: Editado
+    form:
+      body_holder: Escreva seu texto aqui...
+      body_label: Texto
+      cancel: Cancelar
+      edit: Editar Post
+      submit: Enviar
+      tags_helper: 'As tags são delimitadas por vírgulas, ex: ''Tag1, Tag_2, Tag-3, Tag 4...'''
+      tags_holder: Tag1, Tag_2, Tag-3, Tag 4...
+      tags_label: Tags
+      title: Novo Post
+      title_helper: O título não deve exceder 150 caracteres
+      title_holder: Título do post
+      title_label: Título
+  time: atrás

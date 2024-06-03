@@ -2,8 +2,12 @@ source "https://rubygems.org"
 
 ruby "3.2.3"
 
-gem 'activerecord-import'
+gem "activerecord-import"
 
+# HTTP for worker requests
+gem "http"
+
+# UUID for Postgres
 gem "uuid"
 
 # SideKiq for asynchronous jobs
@@ -15,6 +19,9 @@ gem "redis"
 # Devise for authentication
 gem "devise"
 
+# Devise Async for sending emails through Sidekiq
+gem "devise-async"
+
 # Kaminari for pagination
 gem "kaminari"
 
@@ -24,7 +31,6 @@ gem "rails", "~> 7.1.3", ">= 7.1.3.2"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
-# Use sqlite3 as the database for Active Record
 gem "pg"
 
 # Use the Puma web server [https://github.com/puma/puma]
@@ -62,13 +68,16 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
 
   # RSpec for testing
-  gem 'rspec-rails', '~> 6.1.0'
+  gem "rspec-rails", '~> 6.1.0'
 
   # FactoryBot for model testing
-  gem 'factory_bot_rails', '~> 6.4'
+  gem "factory_bot_rails", '~> 6.4'
 end
 
 group :development do
+  gem "dockerfile-rails", ">= 1.6"
+  gem "i18n-tasks", "~> 1.0.13"
+
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 
@@ -81,6 +90,13 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+
+  # Testing one-liners
+  gem "shoulda-matchers"
+
+  # SQLite for testing
+  gem "sqlite3", "~> 1.4"
+
   gem "capybara"
   gem "selenium-webdriver"
 end

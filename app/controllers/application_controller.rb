@@ -1,17 +1,14 @@
 class ApplicationController < ActionController::Base
+  around_action :switch_locale
   before_action :configure_permitted_parameters, if: :devise_controller?
-  before_action :set_locale
 
-  def change_locale
-    if I18n.available_locales.include?(params[:locale].to_sym)
-      cookies[:locale] = { value: params[:locale], expires: 1.year.from_now }
-    end
-
-    redirect_back(fallback_location: root_path)
+  def default_url_options
+    { locale: I18n.locale }
   end
 
-  def set_locale
-    I18n.locale = cookies[:locale] || I18n.default_locale
+  def switch_locale(&action)
+    locale = params[:locale] || I18n.default_locale
+    I18n.with_locale(locale, &action)
   end
 
   protected

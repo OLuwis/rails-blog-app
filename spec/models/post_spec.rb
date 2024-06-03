@@ -1,40 +1,64 @@
 require "rails_helper"
-require "factory_bot_rails"
-require "securerandom"
 
-describe Post, type: :model do
+RSpec.describe Post, type: :model do
+  # Validations Tests
   describe "validations" do
-    it "validates the length of title" do
-      expect(FactoryBot.build(:post)).to be_valid
-      expect(FactoryBot.build(:post, title: "a" * 151)).not_to be_valid
-    end
+    it {
+      should validate_length_of(:title)
+      .is_at_most(150)
+      .with_message("Title cannot exceed 150 characters")
+    }
 
-    it "validates the presence of title" do
-      expect(FactoryBot.build(:post)).to be_valid
-      expect(FactoryBot.build(:post, title: nil)).not_to be_valid
-    end
+    it {
+      should validate_presence_of(:title)
+      .with_message("Title cannot be blank")
+    }
 
-    it "validates the presence of text" do
-      expect(FactoryBot.build(:post)).to be_valid
-      expect(FactoryBot.build(:post, body: nil)).not_to be_valid
-    end
+    it {
+      should validate_presence_of(:body)
+      .with_message("Text cannot be blank")
+    }
+  end
 
-    it "validates the message for blank text" do
-      post = FactoryBot.build(:post, title: "a" * 151)
-      post.valid?
-      expect(post.errors[:title]).to include("Title cannot exceed 150 characters")
-    end
+  # Associations Tests
+  describe "associations" do
+    it {
+      should belong_to(:user)
+      .required
+    }
 
-    it "validates the message for blank title" do
-      post = FactoryBot.build(:post, title: nil)
-      post.valid?
-      expect(post.errors[:title]).to include("Title cannot be blank")
-    end
+    it {
+      should have_many(:comments)
+      .dependent(:destroy)
+    }
 
-    it "validates the message for blank text" do
-      post = FactoryBot.build(:post, body: nil)
-      post.valid?
-      expect(post.errors[:body]).to include("Text cannot be blank")
-    end
+    it {
+      should have_many(:post_tags)
+      .dependent(:destroy)
+    }
+
+    it {
+      should have_many(:tags)
+      .through(:post_tags)
+    }
+  end
+
+  # Columns Tests
+  describe "columns" do
+    it {
+      should have_db_column(:title).of_type(:string)
+    }
+
+    it {
+      should have_db_column(:body).of_type(:text)
+    }
+
+    it {
+      should have_db_column(:created_at).of_type(:datetime)
+    }
+
+    it {
+      should have_db_column(:updated_at).of_type(:datetime)
+    }
   end
 end

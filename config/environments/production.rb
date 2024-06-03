@@ -1,7 +1,7 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  config.action_mailer.default_url_options = { :host => ENV["WEBSITE"] }
+  config.action_mailer.default_url_options = { :host => ENV["HOST_NAME"] }
 
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = false

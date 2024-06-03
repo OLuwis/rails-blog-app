@@ -1,15 +1,17 @@
 Rails.application.routes.draw do
-  devise_for :users
+  get "/:locale" => "posts#index"
   root "posts#index"
 
-  get "posts/new/auto", to: "posts#new", as: :auto_post
-  post "posts/new/auto", to: "posts#queue", as: :queue
+  scope "(:locale)", locale: /en|pt-BR/ do
+    devise_for :users
 
-  get "/change_locale", to: "application#change_locale", as: :change_locale
+    get "posts/new/auto", to: "posts#new", as: :auto_post
+    post "posts/new/auto", to: "posts#queue", as: :queue
 
-  resources :posts do
-    get "/page/:page", action: :index, on: :collection
-    resources :comments, only: [:create, :destroy]
+    resources :posts do
+      get "/page/:page", action: :index, on: :collection
+      resources :comments, only: [:create, :destroy]
+    end
   end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

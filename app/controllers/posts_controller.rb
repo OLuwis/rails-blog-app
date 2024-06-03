@@ -37,8 +37,11 @@ class PostsController < ApplicationController
 
   def update
     @post = current_user.posts.find(params[:id])
+    @post.tags.clear
 
-    if @post.update(post_params)
+    extract_tags(post_params[:tags]) if post_params[:tags]
+
+    if @post.update(title: post_params[:title], body: post_params[:body])
       redirect_to post_path(@post), notice: I18n.t("controller.updated", data: "Post")
     else
       render :edit, status: :unprocessable_entity
@@ -53,22 +56,27 @@ class PostsController < ApplicationController
   end
 
   def queue
-    @file = Text.new(file: params[:text])
-    @file.save
+    text = Text.new
+    text.save
+    text.file.attach(params[:text])
 
-    ProcessTextFileJob.perform_async(@file.id, current_user.id)
-
-    redirect_to root_path, notice: I18n.t("auto.message")
+    if text.file.attached?
+      PostsJob.perform_async(url_for(text.file), current_user.id)
+      redirect_to root_path, notice: I18n.t("auto.message")
+    else
+      redirect_to auto_post_path, status: :unprocessable_entity
+    end
   end
 
   private
     def extract_tags(tags)
-      tags.split(",").each do |tag|
-        @post.tags << Tag.find_or_create_by(name: tag.downcase!.strip)
+      tags.split(/, |,/).each do |tag|
+        @post.tags << Tag.find_or_create_by(name: tag.strip)
       end
     end
 
     def post_params
       params.require(:post).permit(:title, :body, :tags)
     end
+
 end

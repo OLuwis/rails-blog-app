@@ -47,7 +47,7 @@ This application was built using Ruby 3+ and Rails 7+.
 
 This blog features a CRUD system, authentication, database integration, unit and integration testing, email sending, MVC architecture, and asynchronous background jobs.
 
-This blog is containerized with Docker and Compose, and also uses Sidekiq for background jobs
+This blog is containerized with Docker and Compose, and also uses Sidekiq for background jobs.
 
 ### Built with
 ![Ruby Badge](https://img.shields.io/badge/Ruby-CC342D?logo=ruby&logoColor=fff&style=for-the-badge)

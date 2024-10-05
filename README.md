@@ -1,7 +1,7 @@
 <p align="center">
   <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/Ruby_On_Rails_Logo.svg" style="display:block; width: 50%;">
   <h3 align="center">
-    Rails-Blog
+    Rails Blog App
   </h3>
 </p>
 
